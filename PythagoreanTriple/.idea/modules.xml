@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/hackerrank--geometry-problems.iml" filepath="$PROJECT_DIR$/hackerrank--geometry-problems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PythagoreanTriple.iml" filepath="$PROJECT_DIR$/PythagoreanTriple.iml" />
     </modules>
   </component>
 </project>

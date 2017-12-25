@@ -1,15 +1,11 @@
 package problems;
 
-
-        import java.io.*;
-        import java.util.Arrays;
-        import java.util.StringTokenizer;
-
+import java.io.*;
+import java.util.StringTokenizer;
 /**
  * https://www.hackerrank.com/challenges/rectangular-game/problem
  * */
 public class RectangularGame {
-
     static int [][] pairs, matrix;
     public static void fill(int i, int j) {
         for (int k = 1; k <= i; k++) {
@@ -18,8 +14,6 @@ public class RectangularGame {
             }
         }
     }
-
-
     public long s1(int cases, int maxI, int maxJ) {
         long maxCount = 0;
         // dimensao da matriz retangular
