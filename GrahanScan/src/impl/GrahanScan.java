@@ -26,11 +26,25 @@ public class GrahanScan {
 
         /**
          * @return {-1,0,1} {sentido horario, colinear, anti-horario}
+         *
+         * Queremos descobrir a orientação de 3 pontos num plano 2D, P, Q, S
+         * Temos 2 segmentos o PQ e o QS. Com o segmento PO podemos formar um triangulo
+         * retangulo, tal que PQ eh a hipotenusa e px - q.x e p.y - q.y formam
+         * os outros catetos. O mesmo vale para o segmento QS
+         *
+         * Podemos calcular o coeficiente angular do segmento PQ e QS
+         *
+         * mPQ = (q.y - p.y) / (q.x - p.x)
+         * mQS = (s.y - q.y) / (s.x - q.x)
+         *
+         * se mPQ < mQS a orientacao eh antihoraria
+         * se mPQ == mQS os pontos sao colineares uma ves q os segmentos tem a mesma inclinacao
+         * se mPQ > mQS a orientacao e horaria
          * */
         public static int orientation(Point2f a, Point2f b, Point2f c) {
             double area = (b.y-a.y)*(c.x-b.x)-(b.x-a.x)*(c.y-b.y);
             if(area < 0)
-                return 1;       // antic
+                return 1;       // anticlockwise
             else if(area > 0)
                 return -1;      // clockwise
             return 0;           // colinear
@@ -85,7 +99,7 @@ public class GrahanScan {
             @Override
             public int compare(Point2f b, Point2f c) {
                 int o =  orientation(Point2f.this, b, c);
-                return (o == 0) ? (int) (distanceSquaredTo(b) - distanceSquaredTo(c)) : o;
+                return (o == 0) ? (int) (distanceSquaredTo(b) - distanceSquaredTo(c)) : o == 1 ? -1: 1;
             }
         }
 
@@ -112,13 +126,14 @@ public class GrahanScan {
         int minIdxY = 0;
         int n = points.length;
         for(int i=1; i<n; i++) {
-            if(points[i].y < points[minIdxY].y || (points[i].y == points[minIdxY].y && points[i].x < points[minIdxY].x)) {
+            if(points[i].y < points[minIdxY].y
+                    || (points[i].y == points[minIdxY].y && points[i].x < points[minIdxY].x)) {
                 minIdxY = i;
             }
         }
         if(minIdxY != 0)
             swap(points, 0, minIdxY);
-        Arrays.sort(points, 1, n, points[0].comparatorPolarOrder());
+        Arrays.sort(points, 1, n-1, points[0].comparatorPolarOrder());
         int k = 1;
         for(int i=1; i<n; i++) {
             while ( i<n-1 && Point2f.orientation(points[0], points[i], points[i+1]) == 0)
@@ -132,14 +147,8 @@ public class GrahanScan {
         stack.push(points[1]);
         stack.push(points[2]);
         for(int i=3; i<k; i++) {
-            Point2f nextPoint = next(stack);
-            Point2f topPoint = stack.peek();
-            while (stack.size() > 1 && Point2f.orientation(nextPoint, topPoint, points[i]) < 1) {
+            while (stack.size() > 1 && Point2f.orientation(next(stack), stack.peek(), points[i]) < 1) {
                 stack.pop();
-                if(stack.size() > 1) {
-                    topPoint = stack.peek();
-                    nextPoint = next(stack);
-                }
             }
             stack.push(points[i]);
         }
