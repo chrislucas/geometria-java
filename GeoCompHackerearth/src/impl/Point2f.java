@@ -1,8 +1,6 @@
 package impl;
 
 public class Point2f {
-
-
     private double x, y;
     public Point2f(double x, double y) {
         this.x = x;
@@ -47,6 +45,10 @@ public class Point2f {
         double acx = c.x - a.x;
         double acy = c.y - a.y;
         return abx * acy + aby * acx;
+    }
+
+    public static double dotProduct() {
+        return 0.0;
     }
 
     @Override
