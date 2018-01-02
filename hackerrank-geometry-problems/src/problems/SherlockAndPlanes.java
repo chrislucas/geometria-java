@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 /**
  * https://www.hackerrank.com/challenges/sherlock-and-planes/problem
- *
+ * DONE
  * */
 public class SherlockAndPlanes {
 
@@ -19,8 +19,6 @@ public class SherlockAndPlanes {
     }
     private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private static final PrintWriter writer = new PrintWriter(new OutputStreamWriter(System.out), true);
-
-
     private static void run() {
         try {
             int cases = Integer.parseInt(reader.readLine());
@@ -52,8 +50,7 @@ public class SherlockAndPlanes {
                             +anotherMatrix[0][2]*anotherMatrix[1][1]*anotherMatrix[2][0]
                         )
                         ;
-
-                writer.printf("%s", det == 0 ? "YES" : "NO");
+                writer.printf("%s\n", det == 0 ? "YES" : "NO");
             }
         } catch (IOException ioex) {}
     }
