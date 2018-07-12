@@ -1,8 +1,9 @@
 package impl;
 
-
-
-public class AnotherConvexHull {
+/**
+ *
+ * */
+public class QuickHull {
 
 
     public static void main(String[] args) {
