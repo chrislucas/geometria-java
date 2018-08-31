@@ -101,7 +101,7 @@ public class AnotherGrahanScan {
         }
 
         Stack<Point2f> hull = new Stack<>();
-        if (m > 3) {
+        if (m > 2) {
             hull.push(points.get(0));
             hull.push(points.get(1));
             hull.push(points.get(2));
