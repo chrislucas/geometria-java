@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 /**
  * https://www.hackerrank.com/challenges/rectangular-game/problem
+ * DONE
  * */
 public class RectangularGame {
     static int [][] pairs, matrix;

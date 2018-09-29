@@ -60,12 +60,18 @@ public class TestPoint2f {
         System.out.println(Point2f.crossProduct(matrix[idx][0], matrix[idx][1], matrix[idx][2]));
     }
 
+    /**
+     * https://www.mathportal.org/calculators/analytic-geometry/line-point-distance.php
+     * */
     public static void testDistancePointToSegment() {
-        Point2f p = new Point2f(1,1);
-        Point2f q = new Point2f(10,4);
-        Point2f r = new Point2f(3,7);
-        Point2f.Segment2f segment2f = new Point2f.Segment2f(p, q);
-        System.out.println(Point2f.distancePointToLine(segment2f, r));
+        Point2f [][] matrix = {
+                 {new Point2f(2,1),  new Point2f(5,7), new Point2f(10,7)}
+                ,{new Point2f(1,1),  new Point2f(10,4), new Point2f(3,7)}
+        };
+        int idx = 1;
+        Point2f.Segment2f segment2f = new Point2f.Segment2f(matrix[idx][0], matrix[idx][1]);
+        System.out.println(Point2f.distancePointToLine(segment2f, matrix[idx][2]));
+        System.out.println(Point2f.distancePointToLine2(segment2f, matrix[idx][2]));
     }
 
     public static void main(String[] args) {

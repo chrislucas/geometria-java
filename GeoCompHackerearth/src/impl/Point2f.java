@@ -1,8 +1,6 @@
 package impl;
 
 public class Point2f {
-
-
     private double x, y;
     public Point2f(double x, double y) {
         this.x = x;
@@ -49,6 +47,10 @@ public class Point2f {
         return abx * acy + aby * acx;
     }
 
+    public static double dotProduct() {
+        return 0.0;
+    }
+
     @Override
     public String toString() {
         return String.format("%f %f", x, y);
@@ -67,16 +69,28 @@ public class Point2f {
         }
     }
 
-    // https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line
-    // equacao da reta usando 2 pontos
-    // http://www.coolmath.com/algebra/08-lines/12-finding-equation-two-points-01
+    /**
+     * // distance ( (ax, by, c), P(x0,y0) ) =  (ax0 + by0 + c) / sqrt(a*a+b*b)
+     * // https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line
+     * // equacao da reta usando 2 pontos
+     * // http://www.coolmath.com/algebra/08-lines/12-finding-equation-two-points-01
+     * */
+    // (y2 - y1)x - (x2 - x1)y + (x2y1 * y2x1)
     public static double distancePointToLine(Segment2f segment2f, Point2f p) {
         double diffY2Y1  = segment2f.q.y - segment2f.p.y;
         double diffX2X1  = segment2f.q.x - segment2f.p.x;
         double crossX2Y1 = segment2f.q.x * segment2f.p.y;
         double crossY2X1 = segment2f.q.y * segment2f.p.x;
-        double acc = Math.abs(diffY2Y1 * p.x - diffX2X1 * p.y + crossX2Y1 - crossY2X1)
+        return Math.abs(diffY2Y1 * p.x - diffX2X1 * p.y + crossX2Y1 - crossY2X1)
                 / Math.sqrt(diffY2Y1*diffY2Y1+diffX2X1*diffX2X1);
-        return acc;
+    }
+    // (py - qy)x + (qx - px)y + (pxqy - qxpy)
+    public static double distancePointToLine2(Segment2f segment2f, Point2f p) {
+        double diffY1Y2  = segment2f.p.y - segment2f.q.y;
+        double diffX2X1  = segment2f.q.x - segment2f.p.x;
+        double crossX1Y2 = segment2f.p.x * segment2f.q.y;
+        double crossX2Y1 = segment2f.q.x * segment2f.p.y;
+        return Math.abs( diffY1Y2 * p.x + diffX2X1 * p.y + crossX1Y2 - crossX2Y1)
+                / Math.sqrt(diffY1Y2*diffY1Y2+diffX2X1*diffX2X1);
     }
 }
