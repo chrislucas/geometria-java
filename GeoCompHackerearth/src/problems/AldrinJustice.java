@@ -1,8 +1,6 @@
 package problems;
 
 
-import impl.Point2f;
-
 import java.io.*;
 import java.util.StringTokenizer;
 

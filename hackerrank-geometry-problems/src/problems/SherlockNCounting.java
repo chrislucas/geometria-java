@@ -3,6 +3,7 @@ package problems;
 import java.io.*;
 import java.util.StringTokenizer;
 
+import static java.lang.Math.*;
 
 /**
  * https://www.hackerrank.com/challenges/sherlock-and-counting/problem
@@ -22,8 +23,14 @@ public class SherlockNCounting {
      *
      * */
 
-    public static int solver1(long n, long k) {
-        return 0;
+    public static long solver1(long n, long k) {
+        long b      = n;
+        long c      = n*k;
+        double d    = b*b-4*c;
+        if(d < 0)
+            return n-1;
+        long rs = (long) floor((n  - ceil(sqrt(d))) / 2) * 2;
+        return rs;
     }
 
     public static void main(String[] args) {
