@@ -1,7 +1,11 @@
-package app;
+package app.test;
 
 
-import java.awt.geom.Point2D;
+import app.entity.Point2f;
+import app.group.Group;
+import app.group.GroupByDistanceWithLimitSize;
+import app.group.SimpleGroupByDistance;
+
 import java.util.*;
 
 
@@ -17,10 +21,10 @@ import java.util.*;
  *
  * */
 
-public class GroupPointsByMinDistance {
+public class TestByMinDistance {
 
     private static void test() {
-        Point2f [][] matrixTest = {
+        Point2f[][] matrixTest = {
             {
                 new Point2f(2, 2, true)
                 , new Point2f(40, 40, true)
@@ -46,8 +50,7 @@ public class GroupPointsByMinDistance {
         };
         int idxTest = 0;
         ArrayList<Point2f> points = new ArrayList<>(Arrays.asList(matrixTest[idxTest]));
-        showResult(simpleMethod(points), points);
-        //showResult(advancedMethod(points), points);
+        TestResult.showResult(simpleMethod(points), points);
     }
 
     private static LinkedHashMap<Point2f, LinkedHashSet<Point2f>> simpleMethod(ArrayList<Point2f> points) {
@@ -55,36 +58,6 @@ public class GroupPointsByMinDistance {
         // quantos pontos estao em cada grupo;
         Group simpleGroupByDistance = new SimpleGroupByDistance(points);
         return ((SimpleGroupByDistance) simpleGroupByDistance.apply()).getGroup();
-    }
-
-
-    private static LinkedHashMap<Point2f, LinkedHashSet<Point2f>> advancedMethod(ArrayList<Point2f> points) {
-        Group advanced = new GroupByDistanceWithLimitSize(points);
-        return ((GroupByDistanceWithLimitSize) advanced).getGroup();
-    }
-
-
-    private static  void showResult(LinkedHashMap<Point2f, LinkedHashSet<Point2f>> group
-            , ArrayList<Point2f> points) {
-        int groupedPoints = 0, referencesPoints = 0;
-        for (Map.Entry<Point2f, LinkedHashSet<Point2f>> e : group.entrySet()) {
-            Point2f u = e.getKey();
-            System.out.printf("Origem %s\n", e.getKey());
-            LinkedHashSet<Point2f> set = e.getValue();
-            groupedPoints += set.size();
-            referencesPoints++;
-            for (Point2f v : set) {
-                System.out.printf("Destino %s com distancia %f\n", v, u.distance(v));
-            }
-            System.out.println("\n");
-        }
-
-        System.out.printf("%d pontos %s\n%d Pontos agrupados a %d pontos de referência\n"
-                , points.size()
-                , points.size() > 1 ? "definidos" : "definido"
-                , groupedPoints
-                , referencesPoints
-        );
     }
 
     public static void main(String[] args) {

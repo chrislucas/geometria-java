@@ -1,4 +1,6 @@
-package app;
+package app.group;
+
+import app.entity.Point2f;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -32,15 +34,20 @@ public class GroupByDistanceWithLimitSize implements Group {
 
     public GroupByDistanceWithLimitSize(List<Point2f> points) {
         this.points = points;
-        this.limitSizeSet = 0;
         this.group = new LinkedHashMap<>();
+        int referencePoints = 0;
         for (Point2f point : points) {
-            if (point.isReference())
+            if (point.isReference()) {
                 group.put(point, new LinkedHashSet<>());
+                referencePoints++;
+            }
         }
-        for (Point2f point2f : points) {
-
-        }
+        /**
+         * Quantidade maxima de pontos 'locais' que podem ser agrupados num ponto
+         * de referencia
+         * */
+        this.limitSizeSet = (points.size() - referencePoints) / referencePoints
+                + ((points.size() - referencePoints) % referencePoints);
     }
 
     private void remove(Iterator<Point2f> it) {
@@ -50,11 +57,17 @@ public class GroupByDistanceWithLimitSize implements Group {
         }
     }
 
+    /**
+     * Implementacao de metodo para agrupar pontos pela sua proximidade
+     * */
+    private Group groupPoints() {
+        return this;
+    }
 
 
     @Override
     public Group apply() {
-        return this;
+        return groupPoints();
     }
 
     /**
@@ -64,7 +77,16 @@ public class GroupByDistanceWithLimitSize implements Group {
 
     @Override
     public Point2f chooseOnePoint(List<Point2f> points) {
-        return null;
+        return getPointWithMinY();
+    }
+
+    private Point2f getPointWithMinY() {
+        Point2f pMinY = points.get(0);
+        for (int i = 1; i < points.size() ; i++) {
+            if (pMinY.getY() > points.get(i).getY())
+                pMinY = points.get(i);
+        }
+        return pMinY;
     }
 
 

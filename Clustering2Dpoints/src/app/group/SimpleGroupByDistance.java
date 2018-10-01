@@ -1,4 +1,6 @@
-package app;
+package app.group;
+
+import app.entity.Point2f;
 
 import java.util.*;
 
@@ -23,7 +25,6 @@ public class SimpleGroupByDistance implements Group {
     public LinkedHashMap<Point2f, LinkedHashSet<Point2f>> getGroup() {
         return group;
     }
-
 
     private void remove(Iterator<Point2f> it) {
         while (it.hasNext()) {
