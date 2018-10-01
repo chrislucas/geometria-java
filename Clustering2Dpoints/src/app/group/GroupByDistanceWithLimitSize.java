@@ -50,6 +50,40 @@ public class GroupByDistanceWithLimitSize implements Group {
                 + ((points.size() - referencePoints) % referencePoints);
     }
 
+    private Point2f [] getRefPoints(boolean [] flag, int q) {
+        Point2f [] points = new Point2f[q];
+        Point2f [] ref = (Point2f[]) group.keySet().toArray();
+        for (int i=0, acc=0; i<ref.length; i++) {
+            if (flag[i])
+                points[acc++] = ref[i];
+        }
+        return points;
+    }
+
+    /**
+     * Recuperar todos os pontos de referencia
+     * */
+    private Point2f [] getRefPoints() {
+        return (Point2f[]) group.keySet().toArray();
+    }
+
+    private int getQuantityGroupedPoints(Point2f p) {
+        return group.get(points).size();
+    }
+
+    private Point2f getPointMinDistance(Point2f [] reference, Point2f origin) {
+        double minDistance = MAX;
+        Point2f ans = reference[0];
+        for (Point2f ref : reference) {
+            double distance = ref.distance(origin);
+            if (distance < minDistance) {
+                minDistance = distance;
+                ans = ref;
+            }
+        }
+        return ans;
+    }
+
     private void remove(Iterator<Point2f> it) {
         while (it.hasNext()) {
             it.next();
@@ -57,10 +91,43 @@ public class GroupByDistanceWithLimitSize implements Group {
         }
     }
 
+
+    private void removePointFromRefere(Point2f ref, Point2f point2f) {
+        group.get(ref).remove(point2f);
+    }
+
+    private void addPointToReference(Point2f ref, Point2f point2f) {
+        group.get(ref).add(point2f);
+    }
+
+    private void findCandidateToChange(Point2f ref) {
+        Point2f [] points = (Point2f[]) group.get(ref).toArray();
+    }
+
+
     /**
      * Implementacao de metodo para agrupar pontos pela sua proximidade
      * */
     private Group groupPoints() {
+        for (Point2f point2f : points) {
+            if ( point2f.isReference() )
+                continue;
+            Point2f reference = getPointMinDistance(getRefPoints(), point2f);
+            /**
+             *
+             * Se o ponto de 'referencia' nao estiver saturado, adicione a ele um ponto
+             * de 'localidade'
+             *
+             * */
+            if (getQuantityGroupedPoints(reference) <= limitSizeSet) {
+                group.get(reference).add(point2f);
+            }
+            else {
+                /**
+                 * Se o ponto de refencia estiver saturado, encontre outro
+                 * */
+            }
+        }
         return this;
     }
 

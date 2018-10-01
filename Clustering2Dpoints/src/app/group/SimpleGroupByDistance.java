@@ -46,11 +46,11 @@ public class SimpleGroupByDistance implements Group {
             /**
              * Para agrupar os 'pontos residenciais' aos 'pontos de referencia'
              * procuramos qual o ponto referencia mais proximo de um ponto residencial
-             * */
+             **/
             for (Point2f reference : group.keySet()) {
                 // distancia entre um ponto residencial para um ponto de referencia
                 double distance = reference.distance(point2f);
-                if ( distance < minDistance) {
+                if (distance < minDistance) {
                     minDistance = distance;
                     // Se encontrarmos um ponto referencia que seja mais proximo do ponto residencial
                     // removemos todos os pontos que eram considerados os mais proximos

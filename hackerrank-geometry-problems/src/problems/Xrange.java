@@ -13,11 +13,11 @@ public class Xrange {
     private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private static final PrintWriter writer = new PrintWriter(new OutputStreamWriter(System.out), true);
 
-    public static double angleBetweenAxes(int nAxes) {
+    private static double angleBetweenAxes(int nAxes) {
         return 360f / (2f * nAxes);
     }
 
-    public static double rotate(int k, int nAxes) {
+    private static double rotate(int k, int nAxes) {
         return (360f * k / nAxes) % 360;
     }
 
@@ -25,7 +25,7 @@ public class Xrange {
 
     }
 
-    public static double [] initialAngles, copyAngles;
+    private static double [] initialAngles, copyAngles;
 
     /**
      * 1 rotate, 2 flip
