@@ -59,6 +59,18 @@ public class TestByMinDistanceWithLimitSizeSet {
             , new Point2f(220, 250, false)
             , new Point2f(220, 260, false)
 
+                // pontos novos para teste
+            , new Point2f(200, 260, false)
+            , new Point2f(180, 200, false)
+            , new Point2f(220, 200, false)
+            , new Point2f(250, 200, false)
+            , new Point2f(250, 250, false)
+            , new Point2f(270, 250, false)
+            , new Point2f(220, 290, false)
+            , new Point2f(215, 295, false)
+            , new Point2f(230, 300, false)
+                //
+
             // pontos mais proximos de p(300, 300)
             , new Point2f(290, 250, false)
             , new Point2f(290, 290, false)
