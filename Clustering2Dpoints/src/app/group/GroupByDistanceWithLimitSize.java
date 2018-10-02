@@ -12,28 +12,6 @@ import java.util.*;
 
 public class GroupByDistanceWithLimitSize implements Group {
 
-    private static class EuclideanDistance implements Comparator<Point2f> {
-        private Point2f local;
-
-        public EuclideanDistance(Point2f local) { this.local = local; }
-
-        @Override
-        public int compare(Point2f p, Point2f q) {
-            double dpl = local.distance(p);
-            double dql = local.distance(q);
-            debug(p, dpl);
-            debug(q, dql);
-            return Double.compare(dpl, dql);
-        }
-
-        private void debug(Point2f q, double distance) {
-            System.out.printf("Distancia entre %s e %s eh %f\n"
-                    , local
-                    , q
-                    , distance);
-        }
-    }
-
     private ArrayList<Point2f> points, references;
     private int limitSizeSet;
 
@@ -139,9 +117,12 @@ public class GroupByDistanceWithLimitSize implements Group {
                 copyReferencePoints.removeIf(attempt::equals);
             }
             // se nao sobraram mais pontos para testar, nos restas adicionar
-            // o atual 'ponto local' no segundo ponto de referencia mais proximo
+            // o atual 'ponto local' ao ponto de referencia mais proximo
             if (copyReferencePoints.isEmpty()) {
-                Point2f nearest = getNearestReferencePoint(copyReferencePoints, currentLocalPoint);
+                // recuperar o potno de referencia mais proximo do ponto local atual
+                Point2f nearest = getNearestReferencePoint(references, currentLocalPoint);
+                // marcar o ponto como um ponto excedente adicionado
+                currentLocalPoint.setAsOverWeight();
                 addPointToReference(nearest, currentLocalPoint);
             }
             /**
@@ -199,7 +180,9 @@ public class GroupByDistanceWithLimitSize implements Group {
                         // vamos adicionar o 'ponto local corrente' ao 'ponto de referencia corrente'
                         addPointToReference(currentReferencePoint, currentLocalPoint);
                         // vamos inserir o ponto de referencia na lista de pontos tentados pelo ponto local
-                        currentLocalPoint.addAttempts(currentReferencePoint);
+                        // A linha abaixo eh desnecessaria porque o metodo addPointToReference ja adiciona o 'ponto referencia'
+                        // a lista de pontos usados do 'ponto local'
+                        // currentLocalPoint.addAttempts(currentReferencePoint);
                         /**
                          * tentar conectar o 'ponto local' removido ao 'ponto de referencia' que foi definido
                          * como o i-esimo mais proximo
@@ -214,8 +197,10 @@ public class GroupByDistanceWithLimitSize implements Group {
                  * de referencia mais proximo
                  * */
                 if (!removed) {
-                    // adiciona o ponto de referencia
-                    currentLocalPoint.addAttempts(currentLocalPoint);
+                    // TODO a linha abaixo eh desnecessaria
+                    // currentLocalPoint.addAttempts(nextNearestReferencePoint);
+                    // Tentar adicionar o ponto local corrente ao proximo ponto de referencia mais proximo caso
+                    // ele nao esteja saturado tambem
                     attemptConnectPoints(nextNearestReferencePoint, currentLocalPoint);
                 }
             }

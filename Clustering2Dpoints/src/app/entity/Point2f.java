@@ -9,6 +9,8 @@ public class Point2f {
     // indica que tal ponto e uma referencia no ponto cartesiano
     private boolean reference;
 
+    private boolean overweight = false;
+
     private static final double EPS = 1E-7;
 
     private ArrayList<Point2f> refAttempts;
@@ -45,6 +47,10 @@ public class Point2f {
         return Math.sqrt( ((x - that.getX()) * (x - that.getX())) + ((y - that.getY()) * (y - that.getY())));
     }
 
+    public void setAsOverWeight() {
+        this.overweight = true;
+    }
+
     @Override
     public boolean equals(Object obj) {
         Point2f that = (Point2f) obj;
@@ -53,11 +59,12 @@ public class Point2f {
 
     @Override
     public String toString() {
-        return String.format("P(%f, %f) - %s.\nTentativas de conexao: %d"
+        return String.format("P(%f, %f) - %s.\nTentativas de conexao: %d\nSobrecarregando: %s"
             , x
             , y
             , reference ? "Ponto de referência" : "Ponto Residencial"
             , this.refAttempts.size()
+            , overweight
         );
     }
 }

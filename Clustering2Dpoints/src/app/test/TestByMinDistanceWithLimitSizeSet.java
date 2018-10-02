@@ -31,6 +31,7 @@ public class TestByMinDistanceWithLimitSizeSet {
             , new Point2f(20, 15, false)
             , new Point2f(32, 15, false)
             , new Point2f(50, 15, false)
+            , new Point2f(100, 30, false)
         };
 
         Point2f [] q = {
@@ -56,7 +57,7 @@ public class TestByMinDistanceWithLimitSizeSet {
             , new Point2f(220, 220, false)
             , new Point2f(220, 240, false)
             , new Point2f(220, 250, false)
-            , new Point2f(220, 250, false)
+            , new Point2f(220, 260, false)
 
             // pontos mais proximos de p(300, 300)
             , new Point2f(290, 250, false)

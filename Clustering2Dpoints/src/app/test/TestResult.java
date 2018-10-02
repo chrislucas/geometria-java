@@ -14,12 +14,13 @@ public class TestResult {
         int groupedPoints = 0, referencesPoints = 0;
         for (Map.Entry<Point2f, LinkedHashSet<Point2f>> e : group.entrySet()) {
             Point2f u = e.getKey();
-            System.out.printf("Origem %s\n", e.getKey());
             LinkedHashSet<Point2f> set = e.getValue();
-            groupedPoints += set.size();
+            int s = set.size();
+            System.out.printf("Ponto de Destino %s.\n%d pontos conectados\n\n", e.getKey(), s);
+            groupedPoints += s;
             referencesPoints++;
             for (Point2f v : set) {
-                System.out.printf("Destino %s com distancia %f\n", v, u.distance(v));
+                System.out.printf("Ponto de Origem %s.\nDistancia do destino: %f \n\n", v, u.distance(v));
             }
             System.out.println("\n");
         }
