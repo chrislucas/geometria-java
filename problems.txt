@@ -1,0 +1,18 @@
+Problemas classificados como geometria e grafos
+
+https://problemclassifier.appspot.com/?keywords=graph%2C+geometry&user=
+
+https://www.spoj.com/problems/tags
+
+
+https://codeforces.com/problemset/problem/223/D
+
+https://codeforces.com/problemset/problem/756/F
+
+https://codeforces.com/problemset/problem/223/E
+
+https://codeforces.com/problemset/tags/geometry
+
+https://www.spoj.com/problems/tag/plane-geometry
+
+https://www.spoj.com/problems/tag/geometry
