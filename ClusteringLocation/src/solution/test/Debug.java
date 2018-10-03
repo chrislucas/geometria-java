@@ -13,15 +13,14 @@ class Debug {
         for (Map.Entry<Location, LinkedHashSet<Location>> e : graph.entrySet()) {
             LinkedHashSet<Location> origins = e.getValue();
             int s = origins.size();
-            System.out.printf("Ponto de Referencia %s.\n%d pontos conectados\n\n", e.getKey(), s);
+            System.out.printf("%s - %d pontos conectados\n\n", e.getKey(), s);
 
             groupedPoints += s;
             referencesPoints++;
 
             for (Location origin : origins) {
-                System.out.printf("Ponto de Origem %s", origin);
+                System.out.printf("Ponto de Origem %s\n", origin);
             }
-
             System.out.println("\n");
         }
 

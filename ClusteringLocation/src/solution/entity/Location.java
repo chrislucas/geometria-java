@@ -93,7 +93,7 @@ public class Location  {
     public String toString() {
         String debug;
         if (isReference) {
-            debug = String.format("Ponto de Referencia - ID: %d", id);
+            debug = String.format("Ponto de Referencia - ID: %d - %s", id, isVisited ? "Visitado" : "Não Visitado");
         }
         else {
             StringBuilder stringReferences = new StringBuilder();

@@ -114,18 +114,27 @@ public class TestGroupLocationWithLimitSize {
                     )
                 )
             )
+            , // melhor ponto: 'q' parecido com o ponto 8, porem mandar o ponto 9 para referencia 'p'  demora menos
+                new Location(13
+                        , new ArrayList<>(Arrays.asList(
+                        new Location(p, 75, 1000)
+                        , new Location(q, 300, 1000)
+                        , new Location(u, 180, 1000)
+                    )
+                )
+            )
 
             , // melhor ponto: 'q' parecido com o ponto 9, porem mandar o ponto 9 para referencia 'u'  demora menos
-                new Location(13
+                new Location(14
                     , new ArrayList<>(Arrays.asList(
-                          new Location(p, 75, 1000)
+                          new Location(p, 75, 350)
                         , new Location(q, 20, 1000)
-                        , new Location(u, 180, 800)
+                        , new Location(u, 120, 800)
                     )
                 )
             )
             , // melhor ponto: 'p'
-                new Location(14
+                new Location(15
                     , new ArrayList<>(Arrays.asList(
                           new Location(p, 75, 800)
                         , new Location(q, 75, 1000)
@@ -134,33 +143,53 @@ public class TestGroupLocationWithLimitSize {
                 )
             )
             , // melhor ponto: 'q'
-                new Location(15
+                new Location(16
                     , new ArrayList<>(Arrays.asList(
                           new Location(p, 75, 800)
                         , new Location(q, 35, 1000)
-                        , new Location(u, 180, 800)
+                        , new Location(u, 110, 800)
                     )
                 )
             )
-
-            , // melhor ponto: 'p'
-                new Location(16
-                    , new ArrayList<>(Arrays.asList(
-                          new Location(p, 35, 800)
-                        , new Location(q, 75, 1000)
-                        , new Location(u, 180, 800)
-                    )
-                )
-            )
+            // ## INICIO - 00 Os N pontos abaixo serao adicionados ao ponto de referencia P
+            // porque compensa adicionalos a ele ao inves de tentar envia-los para o q
             , // melhor ponto: 'p'
                 new Location(17
                     , new ArrayList<>(Arrays.asList(
-                          new Location(p, 25, 800)
-                        , new Location(q, 75, 1000)
+                          new Location(p, 35, 800)
+                        , new Location(q, 160, 1000)
                         , new Location(u, 180, 800)
                     )
                 )
             )
+            , // melhor ponto: 'p'
+                new Location(18
+                    , new ArrayList<>(Arrays.asList(
+                          new Location(p, 25, 800)
+                        , new Location(q, 120, 1000)
+                        , new Location(u, 170, 800)
+                    )
+                )
+            )
+            , // melhor ponto: 'p'
+                new Location(19
+                    , new ArrayList<>(Arrays.asList(
+                          new Location(p, 15, 800)
+                        , new Location(q, 120, 1000)
+                        , new Location(u, 175, 800)
+                    )
+                )
+            )
+            , // melhor ponto: 'p'
+                new Location(20
+                    , new ArrayList<>(Arrays.asList(
+                          new Location(p, 5, 800)
+                        , new Location(q, 110, 1000)
+                        , new Location(u, 180, 800)
+                    )
+                )
+            )
+            // # FIM - 00
         }
     };
 
