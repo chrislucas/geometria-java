@@ -48,7 +48,7 @@ public class Location  {
     public Location(int id, List<Location> references) {
         this.id = id;
         this.isReference = false;
-        this.references = new PriorityQueue<>( new CompareByDistanceAndTime());
+        this.references = new PriorityQueue<>(new CompareByDistanceAndTime());
         this.references.addAll(references);
     }
 

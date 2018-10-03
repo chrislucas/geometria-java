@@ -75,8 +75,18 @@ public class TestGroupLocationWithLimitSize {
                     )
                 )
             )
-            , // melhor ponto: 'q'
+            // melhor ponto 'p'
+            ,
                 new Location(9
+                        , new ArrayList<>(Arrays.asList(
+                        new Location(p, 75, 1200)
+                        , new Location(q, 130, 1000)
+                        , new Location(u, 120, 800)
+                    )
+                )
+            )
+            , // melhor ponto: 'q'
+                new Location(10
                     , new ArrayList<>(Arrays.asList(
                           new Location(p, 75, 1200)
                         , new Location(q, 30, 1500)
@@ -86,7 +96,7 @@ public class TestGroupLocationWithLimitSize {
             )
 
             , // melhor ponto: 'q'
-                new Location(10
+                new Location(11
                     , new ArrayList<>(Arrays.asList(
                           new Location(p, 75, 1200)
                         , new Location(q, 20, 1000)
@@ -96,7 +106,7 @@ public class TestGroupLocationWithLimitSize {
             )
 
             , // melhor ponto: 'q' parecido com o ponto 8, porem mandar o ponto 9 para referencia 'p'  demora menos
-                new Location(11
+                new Location(12
                     , new ArrayList<>(Arrays.asList(
                           new Location(p, 75, 1000)
                         , new Location(q, 20, 1000)
@@ -106,10 +116,47 @@ public class TestGroupLocationWithLimitSize {
             )
 
             , // melhor ponto: 'q' parecido com o ponto 9, porem mandar o ponto 9 para referencia 'u'  demora menos
-                new Location(12
+                new Location(13
                     , new ArrayList<>(Arrays.asList(
                           new Location(p, 75, 1000)
                         , new Location(q, 20, 1000)
+                        , new Location(u, 180, 800)
+                    )
+                )
+            )
+            , // melhor ponto: 'p'
+                new Location(14
+                    , new ArrayList<>(Arrays.asList(
+                          new Location(p, 75, 800)
+                        , new Location(q, 75, 1000)
+                        , new Location(u, 180, 800)
+                    )
+                )
+            )
+            , // melhor ponto: 'q'
+                new Location(15
+                    , new ArrayList<>(Arrays.asList(
+                          new Location(p, 75, 800)
+                        , new Location(q, 35, 1000)
+                        , new Location(u, 180, 800)
+                    )
+                )
+            )
+
+            , // melhor ponto: 'p'
+                new Location(16
+                    , new ArrayList<>(Arrays.asList(
+                          new Location(p, 35, 800)
+                        , new Location(q, 75, 1000)
+                        , new Location(u, 180, 800)
+                    )
+                )
+            )
+            , // melhor ponto: 'p'
+                new Location(17
+                    , new ArrayList<>(Arrays.asList(
+                          new Location(p, 25, 800)
+                        , new Location(q, 75, 1000)
                         , new Location(u, 180, 800)
                     )
                 )

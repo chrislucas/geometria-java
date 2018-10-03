@@ -105,7 +105,8 @@ public class GroupLocationByDistanceAndTime implements Group {
                  * recuperar a lista de 'localizacoes de origem' ja adicionadas a
                  * 'localizacao de referencia' atual
                  **/
-                Location [] originsAdded = (Location[]) graph.get(currentBestReferenceLocation).toArray();
+                Location [] originsAdded = new Location[graph.get(currentBestReferenceLocation).size()];
+                graph.get(currentBestReferenceLocation).toArray(originsAdded);
 
                 // Marcar a 'localizacao de origem' na posicao 0 como a melhor escolha para uma possivel remocao
                 Location bestOriginLocationChoosed = originsAdded[0];
@@ -120,7 +121,7 @@ public class GroupLocationByDistanceAndTime implements Group {
                     // teste para ver qual localizacao de origem esta mais proxima do proximo ponto de referencia
                     if (compareLocations.compare(ref, bestReferenceLocationChoosed) < 0) {
                         bestOriginLocationChoosed = originsAdded[i];
-                        bestReferenceLocationChoosed = new Location(ref, ref.getDistance(), ref.getTime());
+                        bestReferenceLocationChoosed = ref; //new Location(ref, ref.getDistance(), ref.getTime());
                     }
                 }
 
