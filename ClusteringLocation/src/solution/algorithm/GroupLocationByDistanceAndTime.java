@@ -192,7 +192,6 @@ public class GroupLocationByDistanceAndTime implements Group {
                  **/
                 Location nextBestLocationReference = references.peek();
                 boolean removed = false;
-
                 List<Location> candidatesToRemove = new ArrayList<>();
                 // Loop sobre todas as posicoes de origem ja adicionadas para descobrir qual
                 // quais estao mais distante do ponto de referencia que eles ja estao conectados
