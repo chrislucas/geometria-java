@@ -85,6 +85,7 @@ public class TestGroupLocationWithLimitSize {
                     )
                 )
             )
+                /*
             , // melhor ponto: 'q'
                 new Location(10
                     , new ArrayList<>(Arrays.asList(
@@ -133,6 +134,7 @@ public class TestGroupLocationWithLimitSize {
                     )
                 )
             )
+            */
             , // melhor ponto: 'p'
                 new Location(15
                     , new ArrayList<>(Arrays.asList(

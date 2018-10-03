@@ -1,0 +1,34 @@
+               /**
+                         * recuperar os valores de distancia/tempo entre um ponto de origem adiciona a um ponto de referencia
+                         * considerado a proxima opcao do ponto de origem atualmente analisado
+                         * */
+                        Location nextBestReferenceLocationAdded = getReference(originsAdded[i], nextBestLocationReference);
+                        /**
+                         * Verificar se eh mais viavel mandar um ponto de origem ja adicionado para um proximo ponto
+                         * de referencia
+                         * */
+                        if (compareLocations.compare(nextBestReferenceLocationAdded, nextBestLocationReference) < 0) {
+                            originLocationChoosed = originsAdded[i];
+                            removed = true;
+                        }
+
+
+                                        /**
+                                         * Se nenhuma localizacao de origem anteriormente adicionado foi removida para
+                                         * adicao da localizacao de origem atual entao tentaremos adicionar tal localizacao de origem
+                                         * na proxima localizacao de referencia
+                                         * */
+                                        /*
+                                        if (!removed) {
+                                            join(nextBestLocationReference, currentOriginLocation);
+                                        }
+                                        else {
+                                            // remover a conexao do ponto escolhido com o ponto de referencia
+                                            graph.get(currentBestReferenceLocation).remove(originLocationChoosed);
+                                            // adicionar o ponto de origin corrente a localizacao definida como a mais viavel
+                                            graph.get(currentBestReferenceLocation).add(currentOriginLocation);
+                                            // tentar adicionar o ponto de origem removido a posicao de referencia definida como
+                                            // a mais viavel
+                                            join(nextBestLocationReference, originLocationChoosed);
+                                        }
+                                        */

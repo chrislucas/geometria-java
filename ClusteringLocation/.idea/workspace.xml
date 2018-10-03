@@ -31,12 +31,12 @@
       <file leaf-file-name="TestGroupLocationWithLimitSize.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/solution/test/TestGroupLocationWithLimitSize.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="186" column="45" lean-forward="false" selection-start-line="186" selection-start-column="45" selection-end-line="186" selection-end-column="45" />
+            <state relative-caret-position="-612">
+              <caret line="145" column="13" lean-forward="true" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7375#7376#0" expanded="true" />
-                <element signature="e#7400#7401#0" expanded="true" />
+                <element signature="e#7409#7410#0" expanded="true" />
+                <element signature="e#7434#7435#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,15 +57,25 @@
       <file leaf-file-name="GroupLocationByDistanceAndTime.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="218" column="116" lean-forward="false" selection-start-line="218" selection-start-column="116" selection-end-line="218" selection-end-column="116" />
+            <state relative-caret-position="340">
+              <caret line="221" column="65" lean-forward="true" selection-start-line="221" selection-start-column="65" selection-end-line="221" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1046#1047#0" expanded="true" />
                 <element signature="e#1074#1075#0" expanded="true" />
-                <element signature="e#13469#13470#0" expanded="true" />
-                <element signature="e#13496#13497#0" expanded="true" />
+                <element signature="e#13253#13254#0" expanded="true" />
+                <element signature="e#13280#13281#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="links" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/raw/links">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="22" column="99" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="99" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,11 +111,12 @@
         <option value="$PROJECT_DIR$/src/solution/entity/Location.java" />
         <option value="$PROJECT_DIR$/src/solution/test/Debug.java" />
         <option value="$PROJECT_DIR$/src/solution/test/TestGroupLocationWithLimitSize.java" />
+        <option value="$PROJECT_DIR$/raw/links" />
         <option value="$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="146" />
     <option name="y" value="66" />
     <option name="width" value="1688" />
@@ -291,7 +302,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -303,7 +314,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -314,7 +325,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31069043" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6124722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -333,7 +344,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/test/TestGroupLocationWithLimitSize.java</url>
-          <line>199</line>
+          <line>201</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -399,19 +410,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>230</line>
-          <properties />
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>234</line>
-          <properties />
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>198</line>
+          <line>199</line>
           <properties />
           <option name="timeStamp" value="35" />
         </line-breakpoint>
@@ -421,18 +420,14 @@
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>219</line>
-          <properties />
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="38" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="((GroupLocationByDistanceAndTime)this).graph" custom="solution.algorithm.GroupLocationByDistanceAndTime" />
+        <watch expression="nextBestLocationReference" />
+        <watch expression="nextBestReferenceLocationAdded" />
       </configuration>
     </watches-manager>
   </component>
@@ -491,6 +486,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/solution/test/Debug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/solution/entity/Location.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -507,36 +512,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/solution/test/TestGroupLocationWithLimitSize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="186" column="45" lean-forward="false" selection-start-line="186" selection-start-column="45" selection-end-line="186" selection-end-column="45" />
+        <state relative-caret-position="-612">
+          <caret line="145" column="13" lean-forward="true" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7375#7376#0" expanded="true" />
-            <element signature="e#7400#7401#0" expanded="true" />
+            <element signature="e#7409#7410#0" expanded="true" />
+            <element signature="e#7434#7435#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/solution/test/Debug.java">
+    <entry file="file://$PROJECT_DIR$/raw/links">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="22" column="99" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="99" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="218" column="116" lean-forward="false" selection-start-line="218" selection-start-column="116" selection-end-line="218" selection-end-column="116" />
+        <state relative-caret-position="340">
+          <caret line="221" column="65" lean-forward="true" selection-start-line="221" selection-start-column="65" selection-end-line="221" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1046#1047#0" expanded="true" />
             <element signature="e#1074#1075#0" expanded="true" />
-            <element signature="e#13469#13470#0" expanded="true" />
-            <element signature="e#13496#13497#0" expanded="true" />
+            <element signature="e#13253#13254#0" expanded="true" />
+            <element signature="e#13280#13281#0" expanded="true" />
           </folding>
         </state>
       </provider>

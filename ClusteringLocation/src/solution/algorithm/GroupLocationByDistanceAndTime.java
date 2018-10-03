@@ -192,10 +192,11 @@ public class GroupLocationByDistanceAndTime implements Group {
                  **/
                 Location nextBestLocationReference = references.peek();
                 boolean removed = false;
-                // escolher o ponto de origem ja adicionado como o ideal para possivelmente removermos
-                Location originLocationChoosed = originsAdded[0];
+
+                List<Location> candidatesToRemove = new ArrayList<>();
                 // Loop sobre todas as posicoes de origem ja adicionadas para descobrir qual
-                // esta mais proxima da proxima localizacao de referencia (comparando distancia e tempo de deslocamento)
+                // quais estao mais distante do ponto de referencia que eles ja estao conectados
+                // do que o ponto de origem que estamos tentando inserir
                 for (int i = 0; i < originsAdded.length ; i++) {
                     /**
                      * recuperar os valores de distancia/tempo entre um ponto de origem adiciona a um ponto de referencia
@@ -207,37 +208,36 @@ public class GroupLocationByDistanceAndTime implements Group {
                      * */
                     if (compareLocations.compare(currentBestReferenceLocation, bestReferenceLocationAdded) < 0) {
                         // TODO ATENCAO: Temos um ponto mais proximo que pode ser adicionado ao ponto de referencia
-                        /**
-                         * recuperar os valores de distancia/tempo entre um ponto de origem adiciona a um ponto de referencia
-                         * considerado a proxima opcao do ponto de origem atualmente analisado
-                         * */
-                        Location nextBestReferenceLocationAdded = getReference(originsAdded[i], nextBestLocationReference);
-                        /**
-                         * Verificar se eh mais viavel mandar um ponto de origem ja adicionado para um proximo ponto
-                         * de referencia
-                         * */
-                        if (compareLocations.compare(nextBestReferenceLocationAdded, nextBestLocationReference) < 0) {
-                            originLocationChoosed = originsAdded[i];
-                            removed = true;
-                        }
+                        candidatesToRemove.add(originsAdded[i]);
                     }
                 }
-                /**
-                 * Se nenhuma localizacao de origem anteriormente adicionado foi removida para
-                 * adicao da localizacao de origem atual entao tentaremos adicionar tal localizacao de origem
-                 * na proxima localizacao de referencia
-                 * */
-                if (!removed) {
-                    join(nextBestLocationReference, currentOriginLocation);
-                }
-                else {
-                    // remover a conexao do ponto escolhido com o ponto de referencia
-                    graph.get(currentBestReferenceLocation).remove(originLocationChoosed);
-                    // adicionar o ponto de origin corrente a localizacao definida como a mais viavel
+
+                if (candidatesToRemove.size() > 0) {
+                    // escolher o ponto de origem ja adicionado como o ideal para possivelmente removermos
+                    Location originLocationToRemove = candidatesToRemove.get(0);
+                    Location bestReference = getReference(originLocationToRemove, nextBestLocationReference);
+                    //
+                    for (int i = 1; i < candidatesToRemove.size() ; i++) {
+                        Location location = candidatesToRemove.get(i);
+                        Location reference = getReference(location, nextBestLocationReference);
+                        if (compareLocations.compare(reference, bestReference) < 0) {
+                            bestReference = reference;
+                            originLocationToRemove = location;
+                        }
+                    }
+
+                    // remover a conexao entre um a localizacao de origem anteriomente conecatada da
+                    // localizacao de referencia
+                    graph.get(currentBestReferenceLocation).remove(originLocationToRemove);
+                    // conecatar a localizacao de origem corrente a localizacao de refenrecia
                     graph.get(currentBestReferenceLocation).add(currentOriginLocation);
-                    // tentar adicionar o ponto de origem removido a posicao de referencia definida como
-                    // a mais viavel
-                    join(nextBestLocationReference, originLocationChoosed);
+                    // tentar
+                    join(nextBestLocationReference, originLocationToRemove);
+                }
+                // se nao tiver nenhum candidado para remover, tentar adicionar o ponto de origem corrente ao
+                // proximo ponto de referencia ideal
+                else {
+                    join(nextBestLocationReference, currentOriginLocation);
                 }
             }
         }
