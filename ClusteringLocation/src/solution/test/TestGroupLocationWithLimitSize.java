@@ -73,9 +73,9 @@ public class TestGroupLocationWithLimitSize {
             // melhor ponto: 'q' parecido com o ponto 8, porem mandar o ponto 9 para referencia 'p'  demora menos
             , new Location(12, new ArrayList<>(Arrays.asList(new Location(p, 75, 1000), new Location(q, 20, 1000), new Location(u, 180, 1000))))
             // melhor ponto: 'p' seguindo de 'u' e 'q' porem vamos fazer uma mudanca temporaria afim de testar o algoritmo
-            // mudemos o ponto q new Location(q, 300, 1000) para new Location(q, 120, 1000). Essa mudanca fara com que o algoritmo primeiro indique o ponto 'u' como ponto de referencia idela
-            // porem o algoritmo ira verificar se isso esta correto e ira corrigir para o ponto 'q'
-            , new Location(13, new ArrayList<>(Arrays.asList(new Location(p, 75, 1000), new Location(q, 120, 1000), new Location(u, 180, 1000))))
+            // mudemos o ponto q new Location(q, 300, 1000) para new Location(q, 180, 1000). Essa mudanca fara com que o algoritmo primeiro indique o ponto 'u' como ponto de referencia ideal
+            // porem o algoritmo ira verificar se isso esta correto e ira corrigir para o ponto 'q'. uma segunda mudanca new Location(u, 180, 1000) para new Location(u, 180, 1001)
+            , new Location(13, new ArrayList<>(Arrays.asList(new Location(p, 75, 1000), new Location(q, 180, 1000), new Location(u, 180, 1001))))
             // melhor ponto: 'p' seguido por 'q' e 'u'
             , new Location(14, new ArrayList<>(Arrays.asList(new Location(p, 75, 800), new Location(q, 150, 1000), new Location(u, 180, 800))))
         }

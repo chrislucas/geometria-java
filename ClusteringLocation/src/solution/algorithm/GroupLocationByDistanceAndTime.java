@@ -154,17 +154,17 @@ public class GroupLocationByDistanceAndTime implements Group {
     private void join(Location currentBestReferenceLocation, Location currentOriginLocation) {
         if (graph.get(currentBestReferenceLocation).size() == limitSizeSet) {
             // indicar que tal localizacao de referencia ja foi tentado
-            currentBestReferenceLocation.defineVisited();
+            getReference(currentOriginLocation, currentBestReferenceLocation).defineVisited();
             // vamos escolher outro ponto de referencia
-            PriorityQueue<Location> references = new PriorityQueue<>(currentOriginLocation.getReferences());
+            PriorityQueue<Location> referencesLocationCurrentOrigin = new PriorityQueue<>(currentOriginLocation.getReferences());
             // remover da lista os pontos de referencia ja visitados
-            references.removeIf(Location::isVisited);
+            referencesLocationCurrentOrigin.removeIf(Location::isVisited);
             // o metodo abaixo eh mais eficiente pois a referencia visitada a primeira na fila de prioridade
             /**
              * Se nao encontrarmos a solucao otima, adicione o ponto de origem ao ponto de referencia
              * ideal, mesmo que ele esteja saturado. Porem marque-o como um ponto de sobrecarga
              * */
-            if (references.isEmpty()) {
+            if (referencesLocationCurrentOrigin.isEmpty()) {
                 currentOriginLocation.defineOverloading();
                 graph.get(currentBestReferenceLocation).add(currentOriginLocation);
             }
@@ -180,7 +180,7 @@ public class GroupLocationByDistanceAndTime implements Group {
                  * Recuperar a proxima localizacao de referencia mais adequada para
                  * a localizacao de origem corrente
                  **/
-                Location nextBestLocationReference = references.peek();
+                Location nextBestLocationReference = referencesLocationCurrentOrigin.peek();
                 /**
                  * Lista de localizacoes de 'origem' que ja foram conectadas a uma localizacao de 'referencia' candidatas a serem
                  * removidas para a adicao de uma localizacao de 'origem' mais proxima ou com menos tempo de trajeto
@@ -212,20 +212,19 @@ public class GroupLocationByDistanceAndTime implements Group {
                 if (candidatesToRemove.size() > 0) {
                     // escolher o ponto de origem ja adicionado como o ideal para posteriormente remove-lo
                     Location originLocationChosenToRemove1 = candidatesToRemove.get(0);
+
                     // dados de distancia/tempo da localizacao de referencia baseado na proxima localizacao de referencia ideal em relacao
                     // a localizacao de origem corrente
                     Location nextBestReference1 = getReference(originLocationChosenToRemove1, nextBestLocationReference);
+
                     // Loop sobre as localizacoes de origem candidatas a serem removidas
                     // queremos descobrir qual delas esta mais proxima da proxima localizacao de referencia ideal
                     for (int i = 1; i < candidatesToRemove.size() ; i++) {
                         Location originLocationChosenToRemove2 = candidatesToRemove.get(i);
                         Location ref1 = originLocationChosenToRemove1.getReferences().peek();
                         Location ref2 = originLocationChosenToRemove2.getReferences().peek();
-
-                        /**
-                         * Verificar qual dos pontos de origem que queremos remover esta mais proximo da referencia
-                         * que estamos avaliando
-                         * */
+                        // Verificar qual dos pontos de origem que queremos remover esta mais proximo da referencia
+                        // que estamos avaliando
                         if (compareLocations.compare(ref1, ref2) < 0) {
                             // se o ponto de origem 1 estiver mais proximo do ponto de refenencia do que o ponto de origem 2
                             // verificar se o ponto de origem 1 esta mais distante (ou a mesma distancia) do proximo ponto de referencia do que o ponto 2
