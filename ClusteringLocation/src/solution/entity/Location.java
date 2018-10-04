@@ -3,7 +3,7 @@ package solution.entity;
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Set;
+
 
 public class Location  {
 
@@ -93,7 +93,12 @@ public class Location  {
     public String toString() {
         String debug;
         if (isReference) {
-            debug = String.format("Ponto de Referencia - ID: %d - %s", id, isVisited ? "Visitado" : "Não Visitado");
+            debug = String.format("Ponto de Referencia - ID: %d - %s. Distancia: %d, Tempo %d"
+                    , id
+                    , isVisited ? "Visitado" : "Não Visitado"
+                    , distance
+                    , time
+            );
         }
         else {
             StringBuilder stringReferences = new StringBuilder();
@@ -105,8 +110,9 @@ public class Location  {
                         , reference.getTime())
                 );
             }
-            debug = String.format("Ponto de Origem - ID: %d\n%s"
+            debug = String.format("Ponto de Origem - ID: %d - %s\n%s"
                     , id
+                    , isOverloading ? "Saturado" : "Normal"
                     , stringReferences.toString()
             );
         }

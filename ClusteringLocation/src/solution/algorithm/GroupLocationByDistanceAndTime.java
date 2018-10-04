@@ -47,16 +47,7 @@ public class GroupLocationByDistanceAndTime implements Group {
         }
         return null;
     }
-/*
-    Metodo necessario caso nao seja implementado equal e hashcode na classe Location
-    private Location getReference(Location ref) {
-        for (Location l : graph.keySet()) {
-            if (l.getId() == ref.getId())
-                return l;
-        }
-        return null;
-    }
-*/
+
     /**
      * Location currentBestReferenceLocation, atual ponto de referencia mais proximo e que leva menos
      * tempo de trajeto a partir da localizacao de origem
@@ -191,9 +182,12 @@ public class GroupLocationByDistanceAndTime implements Group {
                  * a localizacao de origem corrente
                  **/
                 Location nextBestLocationReference = references.peek();
-                boolean removed = false;
+                /**
+                 * Lista de localizacoes de 'origem' que ja foram conectadas a uma localizacao de 'referencia' candidatas a serem
+                 * removidas para a adicao de uma localizacao de 'origem' mais proxima ou com menos tempo de trajeto
+                 * */
                 List<Location> candidatesToRemove = new ArrayList<>();
-                // Loop sobre todas as posicoes de origem ja adicionadas para descobrir qual
+                // Loop sobre todas as posicoes de origem ja adicionadas para descobrir
                 // quais estao mais distante do ponto de referencia que eles ja estao conectados
                 // do que o ponto de origem que estamos tentando inserir
                 for (int i = 0; i < originsAdded.length ; i++) {
@@ -211,11 +205,19 @@ public class GroupLocationByDistanceAndTime implements Group {
                     }
                 }
 
+                /**
+                 * Se tivermos pelo menos uma localizacao que foi adicionada cuja distancia/tempo for maior
+                 * do que a da localizaca que estamos avaliando, vamos verificar quais destas localizacoes
+                 * esta mais perto da proxima 'localizacao de referencia' viavel.
+                 * */
                 if (candidatesToRemove.size() > 0) {
-                    // escolher o ponto de origem ja adicionado como o ideal para possivelmente removermos
+                    // escolher o ponto de origem ja adicionado como o ideal para posteriormente remove-lo
                     Location originLocationToRemove = candidatesToRemove.get(0);
+                    // dados de distancia/tempo da localizacao de referencia baseado na proxima localizacao de referencia ideal em relacao
+                    // a localizacao de origem corrente
                     Location bestReference = getReference(originLocationToRemove, nextBestLocationReference);
-                    //
+                    // Loop sobre as localizacoes de origem candidatas a serem removidas
+                    // queremos descobrir qual delas esta mais proxima da proxima localizacao de referencia ideal
                     for (int i = 1; i < candidatesToRemove.size() ; i++) {
                         Location location = candidatesToRemove.get(i);
                         Location reference = getReference(location, nextBestLocationReference);
@@ -225,13 +227,26 @@ public class GroupLocationByDistanceAndTime implements Group {
                         }
                     }
 
-                    // remover a conexao entre um a localizacao de origem anteriomente conecatada da
-                    // localizacao de referencia
-                    graph.get(currentBestReferenceLocation).remove(originLocationToRemove);
-                    // conecatar a localizacao de origem corrente a localizacao de refenrecia
-                    graph.get(currentBestReferenceLocation).add(currentOriginLocation);
-                    // tentar
-                    join(nextBestLocationReference, originLocationToRemove);
+                    /**
+                     * Se tivermos um candidato que esta mais distante/tempo do ponto de referencia que estamos analisando
+                     * e menor distancia/tempo da proxima localizacao de referencia ideal, removeremos a localizacao
+                     * escolhida como a ideal da localizacao de referencia atual, adicionaremos a localizacao de origem
+                     * atual e tentaremos realocar a localizacao de origem removida na proxima localizacao de referencia
+                     * considerada a n-esima mais ideal
+                     * */
+                    if (compareLocations.compare(bestReference, nextBestLocationReference) < 0) {
+                        // remover a conexao entre um a localizacao de origem anteriomente conecatada da
+                        // localizacao de referencia
+                        graph.get(currentBestReferenceLocation).remove(originLocationToRemove);
+                        // conecatar a localizacao de origem corrente a localizacao de refenrecia
+                        graph.get(currentBestReferenceLocation).add(currentOriginLocation);
+                        // tentar
+                        join(nextBestLocationReference, originLocationToRemove);
+                    }
+
+                    else {
+                        join(nextBestLocationReference, currentOriginLocation);
+                    }
                 }
                 // se nao tiver nenhum candidado para remover, tentar adicionar o ponto de origem corrente ao
                 // proximo ponto de referencia ideal
@@ -241,8 +256,39 @@ public class GroupLocationByDistanceAndTime implements Group {
             }
         }
         else {
-            currentBestReferenceLocation.defineVisited();
-            graph.get(currentBestReferenceLocation).add(currentOriginLocation);
+            /**
+             * Como lidamos com um algoritmo recursivo que busca alocar pontos a uma distancia/tempo
+             * otima, por vezes o argumento currentBestReferenceLocation nao eh o valor otimo
+             * para a localizacao de origem que esta sendo avaliada. Assim precisamos testar
+             * se a localizacao de referencia (bestReferenceLocation, removida da fila de prioridade) ideal para a localizaca
+             * eh maior ou igual a localizacao de referencia (currentBestReferenceLocation) passada por argumento
+             * desse metodo recursivo
+             * */
+            PriorityQueue<Location> references = currentOriginLocation.getReferences();
+            // remover os pontos ja visitados
+            references.removeIf(Location::isVisited);
+            // se todos os pontos ja foram visitados, adicione a localizacao de origem a melhor localizacao de referencia
+            if (references.isEmpty()) {
+                Location bestReferenceLocation = currentOriginLocation.getReferences().peek();
+                bestReferenceLocation.defineOverloading(); // marque como uma adicao que sobrecarrega a localizaco de referencia
+                graph.get(bestReferenceLocation).add(currentOriginLocation);
+            }
+            else {
+                // senao recupere a localizacao de referencia ideal
+                Location bestReferenceLocation = references.peek();
+                // compare-a com a localizacao de referencia considerada ideal que foi passara como arugmento
+                // se ela for realmente a ideal, conecte as duas localizacoes
+                // so precisamos comparar o ID das localizacoes de referencia para saber se sao as mesmas
+                // uma vez que a distancia/tempo podem variar de origem para origem
+                if (bestReferenceLocation.equals(currentBestReferenceLocation)) {
+                    currentBestReferenceLocation.defineVisited();
+                    graph.get(currentBestReferenceLocation).add(currentOriginLocation);
+                }
+                else {
+                    // senao tente conectar a localizacao de referencia ideal coletada da fila de prioridade
+                    join(bestReferenceLocation, currentOriginLocation);
+                }
+            }
         }
     }
 
