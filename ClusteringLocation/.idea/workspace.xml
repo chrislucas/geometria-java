@@ -29,8 +29,8 @@
       <file leaf-file-name="TestGroupLocationWithLimitSize.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/solution/test/TestGroupLocationWithLimitSize.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="76" column="54" lean-forward="false" selection-start-line="76" selection-start-column="54" selection-end-line="76" selection-end-column="54" />
+            <state relative-caret-position="221">
+              <caret line="77" column="107" lean-forward="false" selection-start-line="77" selection-start-column="107" selection-end-line="77" selection-end-column="107" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,8 +41,8 @@
       <file leaf-file-name="GroupLocationByDistanceAndTime.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="266" column="0" lean-forward="false" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+            <state relative-caret-position="278">
+              <caret line="278" column="0" lean-forward="false" selection-start-line="278" selection-start-column="0" selection-end-line="278" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#join2#0;class#GroupLocationByDistanceAndTime#0" expanded="false" />
@@ -336,7 +336,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/test/TestGroupLocationWithLimitSize.java</url>
-          <line>128</line>
+          <line>130</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -366,7 +366,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>305</line>
+          <line>324</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
@@ -390,60 +390,90 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>168</line>
+          <line>167</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>176</line>
+          <line>175</line>
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>253</line>
+          <line>265</line>
           <properties />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>236</line>
+          <line>249</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>212</line>
+          <line>211</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>247</line>
+          <line>259</line>
           <properties />
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>266</line>
+          <line>278</line>
           <properties />
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>277</line>
+          <line>289</line>
           <properties />
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
-          <line>271</line>
+          <line>283</line>
           <properties />
           <option name="timeStamp" value="57" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
+          <line>298</line>
+          <properties />
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
+          <line>307</line>
+          <properties />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
+          <line>301</line>
+          <properties />
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
+          <line>228</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java</url>
+          <line>234</line>
+          <properties />
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="58" />
+      <option name="time" value="66" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -590,8 +620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/solution/test/TestGroupLocationWithLimitSize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="76" column="54" lean-forward="false" selection-start-line="76" selection-start-column="54" selection-end-line="76" selection-end-column="54" />
+        <state relative-caret-position="221">
+          <caret line="77" column="107" lean-forward="false" selection-start-line="77" selection-start-column="107" selection-end-line="77" selection-end-column="107" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -600,8 +630,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/solution/algorithm/GroupLocationByDistanceAndTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="266" column="0" lean-forward="false" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+        <state relative-caret-position="278">
+          <caret line="278" column="0" lean-forward="false" selection-start-line="278" selection-start-column="0" selection-end-line="278" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#join2#0;class#GroupLocationByDistanceAndTime#0" expanded="false" />
